@@ -43,7 +43,7 @@ const createNote = async (req, res) => {
 
   // add to the database
   try {
-    const ntoe = await Notes.create({ title, section })
+    const note = await Notes.create({ title, section })
     res.status(200).json(note)
   } catch (error) {
     res.status(400).json({ error: error.message })
