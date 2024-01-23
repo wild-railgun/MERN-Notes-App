@@ -3,6 +3,7 @@ import { useNotesContext } from '../hooks/useNotesContext'
 
 const NoteForm = () => {
   const { dispatch } = useNotesContext()
+  const { user } = useAuthContext()
 
   const [title, setTitle] = useState('')
   const [section, setSection] = useState('')
@@ -12,6 +13,11 @@ const NoteForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    if (!user) {
+      setError('You must be logged in')
+      return
+    }
+
     const note = {title, section}
     
     try {
@@ -19,7 +25,8 @@ const NoteForm = () => {
           method: 'POST',
           body: JSON.stringify(note),
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
           }
         });
       
