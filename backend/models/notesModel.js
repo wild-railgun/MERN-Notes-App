@@ -10,6 +10,10 @@ const noteSchema = new Schema({
   section: {
     type: String,
     required: true
+  },
+  user_id: {
+    type: String,
+    required: true
   }
 }, { timestamps: true })
 
