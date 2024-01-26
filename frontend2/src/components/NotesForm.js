@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNotesContext } from '../hooks/useNotesContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const NoteForm = () => {
   const { dispatch } = useNotesContext()
