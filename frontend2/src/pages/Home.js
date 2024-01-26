@@ -23,7 +23,7 @@ const Home = () => {
     }
 
     if (user) {
-      fetchWorkouts()
+      fetchNotes()
     }
   }, [dispatch])
 
