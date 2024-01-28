@@ -7,6 +7,13 @@ const userRoutes = require('./routes/user')
 
 // express app
 const app = express()
+app.use(cors(
+  {
+    origin: ["https://deploy-mern-lwhq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+));
 
 // middleware
 app.use(express.json())
