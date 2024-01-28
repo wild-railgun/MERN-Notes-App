@@ -22,10 +22,10 @@ app.use((req, res, next) => {
 app.use('/api/notes', notesRoutes);
 app.use('/api/user', userRoutes);
 
-// Static file serving
-app.use(express.static(path.join(__dirname, '/frontend2/build')));
+// Correctly serve static files from the React build directory
+app.use(express.static(path.join(__dirname, '..', 'frontend2', 'build')));
 
-// Serve React App
+// Serve index.html for all other requests (for SPA routing)
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'frontend2', 'build', 'index.html'));
 });
