@@ -23,13 +23,12 @@ app.use('/api/notes', notesRoutes);
 app.use('/api/user', userRoutes);
 
 // Static file serving
-const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/var/data/uploads')));
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 
 // Serve React App
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 });
 
 // connect to db
