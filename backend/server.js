@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, '/frontend2/build')));
 
 // Serve React App
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend2', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'frontend2', 'build', 'index.html'));
 });
 
 // connect to db
