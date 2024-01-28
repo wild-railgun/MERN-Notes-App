@@ -23,7 +23,6 @@ app.use('/api/notes', notesRoutes);
 app.use('/api/user', userRoutes);
 
 // Static file serving
-app.use('/uploads', express.static(path.join(__dirname, '/var/data/uploads')));
 app.use(express.static(path.join(__dirname, '/frontend2/build')));
 
 // Serve React App
