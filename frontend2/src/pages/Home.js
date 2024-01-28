@@ -13,6 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       const response = await fetch('/api/notes', {
+      // const response = await fetch('https://mern-notes-app-n6xe.vercel.app/api/notes', {
         headers: {'Authorization': `Bearer ${user.token}`},
       })
       const json = await response.json()
